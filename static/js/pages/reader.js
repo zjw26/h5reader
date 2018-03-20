@@ -81,8 +81,7 @@ $.get('ajax/chapter_data?id=' + id,function(d){
 },'json');
 setTimeout(function(){
 	var txts = $('#fiction_container').html();
-	txts=txts.replace(/\n+/g,'<br>&nbsp&nbsp&nbsp&nbsp');
-	console.log(typeof txts);
+	txts=txts.replace(/\n+/g,'<br>&nbsp&nbsp');
 	$('#fiction_container').html(txts);
-},500)
+},800)
 
