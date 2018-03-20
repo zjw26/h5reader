@@ -5,7 +5,7 @@ var shelf=JSON.parse(localStorage.getItem('shelf'))?JSON.parse(localStorage.getI
     for(let i=0;i<shelf.length;i++){
         var id=shelf[i].bookId;
         $.get('/ajax/book?id=' + id,function(d){
-            bookData[bookData.length]=d.data;
+            bookData[i]=d.data;
         })
     }
 
