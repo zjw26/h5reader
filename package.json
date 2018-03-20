@@ -16,7 +16,8 @@
     "koa-static-server": "^0.1.8",
     "koa-views": "^4.1.0",
     "webpack": "^2.5.0",
-    "jquery":"^1.4.0"
+    "jquery":"^1.4.0",
+    "request":"^2.85.0"
   },
   "devDependencies": {},
   "scripts": {
