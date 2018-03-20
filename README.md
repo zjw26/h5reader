@@ -16,6 +16,8 @@ cd 项目目录
 npm install 或 cnpm install（淘宝镜像）
 
 node app.js
+
+项目将运行在 127.0.0.1:3000
 ```
 
 ## 说明
