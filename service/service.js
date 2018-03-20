@@ -106,7 +106,7 @@ exports.get_chapter_id= function(id) {
         , reject) {
         try {
             var request=require('request')
-            request('http://127.0.0.1:8080/api/btoc?view=summary&book='+id, function (error, response, body) {
+            request('http://127.0.0.1:3000/api/btoc?view=summary&book='+id, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                      resolve(body);
                 }
@@ -122,7 +122,7 @@ exports.get_chapter_data= function(id) {
         , reject) {
         try {
             var request=require('request')
-            request('http://127.0.0.1:8080/api/btoc/'+id+'?view=chapters&channel=mweb', function (error, response, body) {
+            request('http://127.0.0.1:3000/api/btoc/'+id+'?view=chapters&channel=mweb', function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                      resolve(body);
                 }
@@ -138,7 +138,7 @@ exports.get_chapter_content_data= function(id) {
         , reject) {
         try {
             var request=require('request')
-            request('http://127.0.0.1:8080/chapterapi/chapter/'+id+'?cv=1495097622174', function (error, response, body) {
+            request('http://127.0.0.1:3000/chapterapi/chapter/'+id+'?cv=1495097622174', function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                      resolve(body);
                 }
@@ -150,61 +150,6 @@ exports.get_chapter_content_data= function(id) {
 }
 
 
-
-// exports.get_search_data = function(start, end, keyword) {
-//     //返回一个异步函数，当接收回调时，返回数据
-//     return new Promise(function(resolve
-//         , reject) {
-//         try {
-//             const http = require('http');
-//             // 该模块的作用是把一个object对象，转换为http的查询参数
-//             const qs = require('querystring');
-//             let data = {
-//                 s: keyword,
-//                 start: start,
-//                 end: end
-//             };
-//             let query_str = qs.stringify(data);
-//             let options = {
-//                 hostname: 'dushu.xiaomi.com',
-//                 port: 80, //显式指定
-//                 path: '/store/v0/lib/query/onebox?' + query_str,
-//                 method: 'GET'
-//             };
-//             //http请求
-//             const req_obj = http.request(options, (_res) => {
-//                 let content = '';
-//                 // let size = 0;
-//                 // let chunks = [];
-//                 _res.setEncoding('utf8'); //设置返回的数据格式
-//                 _res.on('data', (chunk) => {
-//                     // console.log(`响应主体: ${chunk}`);
-//                     // size += chunk.length;
-//                     // chunks.push(chunk);
-//                     content += chunk;
-//                 });
-//                 _res.on('end', (e) => {
-//                     // let content = Buffer.concat(chunks, size);
-//                     console.log('响应中已无数据。');
-//                     console.log('########　内容　 ########');
-//                     console.log(content);
-//                     console.log('######## 内容　########');
-//                     resolve(content);
-//                     // cb(null, content); //callback有两个参数err和返回的内容
-//                 });
-//             });
-//             //请求错误处理
-//             req_obj.on('error', (e) => {
-//                 console.error(`请求遇到问题: ${e.message}`);
-//             });
-//             // req_obj.write()
-//             // 使用 http.request() 必须总是调用 req.end() 来表明请求的结束，即使没有数据被写入请求主体。
-//             req_obj.end();
-//         } catch (e) {
-//             console.log(e);
-//         }
-//     });
-//  };
 
 exports.get_search_data = function( keyword) {
     //返回一个异步函数，当接收回调时，返回数据
@@ -237,36 +182,7 @@ exports.get_search_data = function( keyword) {
                 }
             })
             
-            // //http请求
-            // const req_obj = http.request(options, (_res) => {
-            //     let content = '';
-            //     console.log(_res)
-            //     // let size = 0;
-            //     // let chunks = [];
-            //     _res.setEncoding('utf8'); //设置返回的数据格式
-            //     _res.on('data', (chunk) => {
-            //         // console.log(`响应主体: ${chunk}`);
-            //         // size += chunk.length;
-            //         // chunks.push(chunk);
-            //         content += chunk;
-            //     });
-            //     _res.on('end', (e) => {
-            //         // let content = Buffer.concat(chunks, size);
-            //         console.log('响应中已无数据。');
-            //         console.log('########　内容　 ########');
-            //         console.log(content);
-            //         console.log('######## 内容　########');
-            //         resolve(content);
-            //         // cb(null, content); //callback有两个参数err和返回的内容
-            //     });
-            // });
-            // //请求错误处理
-            // req_obj.on('error', (e) => {
-            //     console.error(`请求遇到问题: ${e.message}`);
-            // });
-            // // req_obj.write()
-            // // 使用 http.request() 必须总是调用 req.end() 来表明请求的结束，即使没有数据被写入请求主体。
-            // req_obj.end();
+         
         } catch (e) {
             console.log(e);
         }
