@@ -1,0 +1,86 @@
+<style>
+    .header-tab{
+        padding:0px 90px;
+        text-align: center;
+        line-height: 44px;
+        background: #efeff0;
+        border:1px solid #ddd;
+        position:relative;
+    }
+
+    .header-tab i {
+        bottom: -1px;
+    }
+
+    .header-tab i::before{
+        content:'';
+        display: block;
+        height:2px;
+        width:34px;
+        margin:0 auto;
+        background: #777;
+    }
+
+    .header-user{
+        position:absolute;
+        right:0px;
+        top:0px;
+        width:44px;
+        height:44px;
+        background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01j041d5DOT/boUg2EJlVetOMC.png) no-repeat center;
+        background-size: 16px;
+    }
+
+    .header-checkin{
+        position:absolute;
+        left:0px;
+        top:0px;
+        width:44px;
+        height:44px;
+        background: url(http://image.read.duokan.com/mfsv2/download/s010/p01O5K5DzsAZ/2ZODzjwkRQh7l3.png) no-repeat center;
+        background-size: 22px;
+    }
+
+    .Swipe-tab {
+        position: relative;
+        overflow: hidden;
+        z-index:1;
+    }
+
+    .Swipe-tab>i{
+        position: absolute;
+        left:0;
+        transition:transform ease-out;
+    }
+
+    .Swipe-tab>a{
+        float:left;
+    }
+
+    .Swipe-tab_2>a{
+        width:50%;
+        text-align: center;
+    }
+
+    .f-cb::after{
+        clear:both;
+        content:'';
+        overflow: hidden;
+        visibility: hidden;
+        height:0;
+        display: block;
+    }
+
+    a.Swipe-tab__on{
+        color: #ff6600;
+    }
+</style>
+    <div class="header-tab" id="app_header">
+        <div class="Swipe-tab Swipe-tab_2 f-cb">
+            <a href="javascript:" v-on:click="tabSwitch(1)" class="{{tab_1_class}}"></a>
+            <a href="javascript:" v-on:click="tabSwitch(2)" class="{{tab_2_class}}"></a>
+            <i style="width:{{index_header_tab_width}}px;transition-duration:.5s;transform:translate3d({{header_position}}px,0,0);"></i>
+        </div>
+        <em class="header-user"></em>
+        <em class="header-checkin"></em>
+    </div>

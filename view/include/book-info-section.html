@@ -1,0 +1,171 @@
+<style>
+    .book-info-section {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        padding-top: 20px;
+    }
+    .book-info-section p{
+        margin:0;
+    }
+
+    .book-detail {
+        overflow: hidden;
+        padding: 0 15px;
+    }
+
+    .book-detail .book-cover {
+        display: inline-block;
+        width: 64px;
+        height: 92px;
+        margin-right: 10px;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .book-detail .book-desc {
+        position: relative;
+    }
+
+    .book-detail .book-desc .book-title {
+        color: #333;
+        line-height: 1;
+        margin: 3px 0 5px;
+        font-weight: 500;
+        font-size:16px;
+    }
+
+    .book-detail .book-desc .book-meta {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .red {
+        color: #ed424b;
+    }
+
+    .book-detail .book-desc .book-meta {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .book-reader {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #ebebeb;
+    }
+
+    .book-reader .reader-item {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+
+    .book-reader .reader-item span.title {
+        font-size: 12px;
+        color: #999;
+    }
+
+    .book-reader .reader-item span {
+        display: block;
+        line-height: 1.5;
+    }
+
+    .book-intro.part {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+
+    .book-intro {
+        position: relative;
+        padding: 10px 15px 0;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: justify;
+        border-top: 1px solid #ebebeb;
+    }
+
+    .book-menu {
+        position: relative;
+        margin-top: 10px;
+        padding: 0 15px;
+        border-top: 1px solid #ebebeb;
+        border-bottom: 1px solid #ebebeb;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .book-menu a {
+        display: block;
+    }
+
+    .book-menu .menu-title {
+        font-size: 16px;
+        line-height: 36px;
+        font-weight: 400;
+        color:#333;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .book-menu .menu-content {
+        position: relative;
+        font-size: 12px;
+        line-height: 36px;
+        width: 70%;
+        text-align: right;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-right: 15px;
+    }
+
+    .gray {
+        color: #969ba3;
+    }
+    .fr {
+        float: right;
+    }
+    .split-dot {
+        padding: 0 1px;
+    }
+</style>
+
+<section class="book-info-section">
+    <div class="book-detail">
+        <img :src="cover" alt="盗墓笔记" class="book-cover fl">
+        <div class="book-desc">
+            <h2 class="book-title">{{data.title}}</h2>
+            <p class="book-meta red">{{data.author}}</p> 
+            <p class="book-meta">{{ data.majorCate }}/{{ data.minorCate }}</p>
+            <p class="book-meta">{{wordCount}}<span class="split-line">|</span> {{ data.isSerial ? '连载中' : '完结'}}</p>
+        </div>
+    </div> 
+    <div class="book-reader">
+        <p class="reader-item"><span class="title">追人气</span><span class="content">{{ data.latelyFollower }}</span></p>
+        <p class="reader-item"><span class="title">读者留存率</span><span class="content">{{ data.retentionRatio }}%</span></p>
+        <p class="reader-item"><span class="title">日更新字数/天</span><span class="content">{{ serializeWordCount }}</span></p>
+    </div>
+    <div class="book-intro part">
+        <p class="long-intro">50年前由长沙土夫子（盗墓贼）出土的战国帛书，记载了一个奇特战国古墓的位置，50年后，其中一个土夫子的孙子在他的笔记中发现这个秘密，纠集了一批经验丰富的盗墓贼前去寻宝，谁也没有想到，这个古墓竟然有着这么多诡异的事情：七星疑棺，青眼狐尸，九头蛇柏。这神秘的墓主人到底是谁，他们到底能不能找到真正的棺椁？故事悬念重重，情节跌荡，值得一看。</p> 
+        <!-- <svg aria-hidden="true" class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-back"></use></svg> -->
+    </div> 
+    <div class="book-menu">
+        <a href="javascript:" class="" @click="menu(data._id)">
+            <div class="menu-title fl">目录</div> 
+            <p class="menu-content fr gray">2015-11-04<span class="split-dot">·</span> {{ data.lastChapter }}
+                <!-- <svg aria-hidden="true" class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-back"></use></svg> -->
+            </p>
+        </a>
+    </div>
+</section>

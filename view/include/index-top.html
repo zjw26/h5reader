@@ -1,0 +1,115 @@
+<style>
+    .top-home{
+        background:#fff;
+        border-bottom: 10px solid #f5f5f5;
+    }
+    .top-home__search{
+        margin:10px 13px;
+        padding:1px 0 0 30px;
+        font:11px/33px a;
+        color:rgba(0,0,0,0.4);
+        background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01dSYLeWtSR/tY73MgTfVw7UAS.png) 8px center no-repeat;
+        background-size:14px;
+        border:1px solid #f5f5f5;
+        border-radius:2px;
+    }
+
+    .cover{
+        width:100%;
+    }
+
+    .top-home__btn{
+        margin: 14px 0  4px;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .top-home__btn li{
+        flex-grow:0;
+        font-size:12px;
+    }
+
+    .top-home__icon {
+        display: block;
+        height: 22px;
+        width: 22px;
+        margin: 0px auto;
+    }
+
+</style>
+    <section class="top-home">
+        <a href="/search">
+            <div class="top-home__search">输入书名/作者/关键字</div>
+        </a>
+        <div id="myCarousel" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>   
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="http://dushu.xiaomi.com/#page=channel&id=410">
+                        <img class="cover" src="http://image.read.duokan.com/mfsv2/download/fdsc3/p01IXamA7L8A/NRfV4ygyIRzNvI.png!q90" alt="First slide">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://dushu.xiaomi.com/#page=channel&id=410">
+                        <img class="cover" src="http://image.read.duokan.com/mfsv2/download/fdsc3/p01btQhhzKEP/uXSEtKJUVA4reR.jpg!q90" alt="First slide">
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://dushu.xiaomi.com/#page=channel&id=410">
+                        <img class="cover" src="http://image.read.duokan.com/mfsv2/download/fdsc3/p01HcvpQ4cI9/WgZADYUd9j6wwI.jpg!q90" alt="First slide">
+                    </a>
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="carousel-control left" href="#myCarousel" 
+                data-slide="prev">&lsaquo;
+            </a>
+            <a class="carousel-control right" href="#myCarousel" 
+                data-slide="next">&rsaquo;
+            </a>
+        </div>
+        <ul class="top-home__btn">
+                <li>
+                    <a href="/male">
+                        <img class="top-home__icon" src="/static/img/male.png">
+                        <p class="top-home__des">男生</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/female">
+                        <img class="top-home__icon" src="/static/img/female.png">
+                        <p class="top-home__des">女生</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/category">
+                        <img class="top-home__icon" src="/static/img/category.png">
+                        <p class="top-home__des">分类</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/rank">
+                        <img class="top-home__icon" src="/static/img/rank.png">
+                        <p class="top-home__des">排行</p>
+                    </a>
+                </li>
+            </ul>
+    </section>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>$.noConflict();</script>
+    <script>
+        jQuery.get('http://127.0.0.1:3000/api/book/fuzzy-search?query='+123,function(data){
+                console.log(data);
+            });
+    </script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>

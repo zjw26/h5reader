@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .book {
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="book" id="app">
+            <% include include/back-bar.html %>
+            <% include include/book-info-section.html %>
+            <% include include/review.html %>
+            <% include include/recommend.html %>
+            <% include include/book-bar.html %>
+    </div>
+
+
+    <script src="https://cdn.bootcss.com/vue/1.0.26-csp/vue.js"></script>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
+    <script src="/static/js/pages/book.js"></script>
+</body>
+</html>

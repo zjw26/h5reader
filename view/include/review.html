@@ -1,0 +1,99 @@
+<style>
+    .review {
+        position: relative;
+        padding-left: 15px;
+        overflow: hidden;
+        border-bottom: 10px solid #f6f7f9;
+    }
+
+    .review ul{
+        margin:0;
+    }
+
+    .review p{
+        margin:0;
+    }
+    .review h2 {
+        line-height: 1;
+        padding-top: 10px;
+        font-weight: 400;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .review .review-list {
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .review .review-item {
+        position: relative;
+        overflow: hidden;
+        padding: 10px 0;
+        font-size: 12px;
+        border-bottom: 1px solid #ebebeb;
+    }
+
+    .review .review-item .avatar {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 40px;
+        height: 40px;
+    }
+
+    .review .review-item .review-content {
+        margin-left: 50px;
+        padding-right: 15px;
+        /* margin-top: -15px; */
+    }
+
+    .review .review-item .review-content .name {
+        color: #a58d5e;
+    }
+
+    .review .review-item .review-content .title {
+        line-height: 2;
+        font-weight: 700;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .review .review-item .review-content .time {
+        color: #999;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .review .review-item .review-content .content {
+        line-height: 1.5;
+    }
+
+    .text-line-comm {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+</style>
+<section class="review">
+    <h2>热门书评</h2>
+    <ul class="review-list">
+        <li class="review-item" v-for="review in reviews.reviews" v-if="$index<5"><img :src="review.author.avatar | setAvatar" :alt="review.author.nickname" class="avatar"> 
+            <div class="review-content">
+                <p class="name">{{ review.author.nickname }}<span class="time fr">{{ review.updated |time }}</span></p>
+                <p class="title">{{review.title}}</p>
+                <p class="content text-line-comm">{{review.content}}</p> 
+            </div>
+        </li>
+
+        
+        
+    </ul>
+</section>
+

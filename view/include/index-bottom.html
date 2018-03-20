@@ -1,0 +1,53 @@
+<style>
+    .channel-group__title>i{
+        position: absolute;
+        margin: -1px 0 0 5px;
+        padding:3px 5px 3px 5px;
+        font:9px/9px a;
+        color:#fff;
+        background: #53ac7d;
+        border-radius:1px;
+    }
+
+    .banner-h5__list {
+        padding: 13px 13px 0px;
+        display: flex;
+    }
+
+    .banner-h5__cover {
+        position: relative;
+        padding-bottom: 60.6%;
+        border: 1px solid #f0f0f0;
+        border-radius: 1px;
+    }
+
+    .banner-h5__list li {
+        float: left;
+        width: 50%;
+        margin-bottom: 16px;
+        padding: 0 3px;
+        box-sizing: border-box;
+    }
+
+    .banner-h5__cover img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 1px;
+    }
+</style>
+
+<section class="banner-h5">
+    <div class="channel-group__header">
+        <h2 class="channel-group__title">精选专题<i>热</i></h2>
+    </div>
+    <ul class="banner-h5__list">
+      
+            <li v-for="item in topic">
+                <div class="banner-h5__cover">
+                    <img class="cover" :src="item.ad_pic_url"></div>
+            </li>
+    
+    </ul>
+    <a href="javascript:" class="channel-group__footer">更多精彩专题&gt&gt</a>
+</section>

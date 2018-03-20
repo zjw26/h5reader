@@ -1,0 +1,120 @@
+<style>
+    .channel-group{
+        position:relative;
+        border-bottom: 10px solid #f5f5f5;
+        background: #fff;
+    }
+
+    .channel-group__header{
+        position:relative;
+        padding:10px 14px;
+        border-bottom: 1px solid #f0f0f0;
+        border-left:6px solid #ffab18;
+    }
+
+    .channel-group__title{
+        font-size:16px;
+        font-weight: normal;
+        color:#333;
+    }
+
+    .book-table{
+        padding:13px 14px 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .book-table li{
+        /* width:33.3%; */
+        display: inline-block;
+        vertical-align: top;
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
+    .u-book{
+        width:86px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .book-cover{
+        position: relative;
+        width:86px;
+        height:113px;
+        background-color:#eeece9;
+        box-shadow: 0px 6px 5px -3px #aaa; 
+        border:1px solid #f0f0f0;
+        border-bottom: none;
+        overflow: hidden;
+    }
+
+    .book-cover img{
+        width:100%;
+        height:100%;
+    }
+
+    .book-info{
+        padding:8px;
+    }
+
+    .title{
+        font:13px/1.4em;
+        max-height: 2.8em;
+        overflow: hidden;
+        color: #8d8d8d;
+        margin-bottom: 0px;
+        font-weight: 400;
+    }
+
+    .u-tagRT{
+        position: absolute;
+        top:0px;
+        right:0px;
+        line-height:1.4;
+        background-color: #ef6c2c;
+        color:#fff;
+        width:100%;
+        font-size:1.4rem;
+        text-align:center;
+        transform-origin: top center;
+        transform: translateX(50%) rotate(45deg) translateY(50%) scale(0.8);
+    }
+
+    .u-tagRT.-freefiction {
+        background-color: #49ab3f;
+    }
+
+    .u-tagRT.-freefiction:before {
+        content: '\9650\514d';
+    }
+
+    .channel-group__footer {
+        display: block;
+        border-top: 1px solid #f0f0f0;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+</style>
+
+<section class="channel-group">
+    <div class="channel-group__header">
+        <h2 class="channel-group__title">限时免费</h2>
+    </div>
+    <ul class="book-table">
+        <li v-for="item in free" v-if="$index<3">
+            <div class="u-book">
+                <div class="book-cover">
+                    <img alt="{{item.data.title}}" :src="item.data.cover">
+                    <div class="u-tagRT -freefiction"></div>
+                </div>
+                <div class="book-info">
+                    <h3 class="title">{{item.data.title}}</h3>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <a href="javascript:" class="channel-group__footer">更多限免佳作&gt&gt</a>
+</section>

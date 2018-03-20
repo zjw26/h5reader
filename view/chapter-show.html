@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .book {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book h4{
+            margin-top:40px;
+        }
+
+        .chapter.show {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        .chapter {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 9999;
+            background-color: #fff;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            transition: -webkit-transform .15s;
+            transition: transform .15s;
+            transition: transform .15s, -webkit-transform .15s;
+        }
+
+        .back-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            overflow: hidden;
+            color: #fff;
+            background-color: #ed424b;
+            z-index: 1;
+        }
+
+        .back-bar .back {
+            position: absolute;
+            top: -2px;
+            left: 0px;
+            text-align: center;
+        }
+
+        .back-bar .back .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        .back-bar h2 {
+            width: 70%;
+            margin: 0 auto;
+            line-height: 40px;
+            text-align: center;
+            font-size:16px;
+        }
+
+        .top__back {
+            float: left;
+            width: 42px;
+            height: 44px;
+        }
+
+        .top__back:before {
+            content: '';
+            display: block;
+            margin: 15px 0 0 16px;
+            width: 10px;
+            height: 16px;
+            background: url(/static/img/back.png) no-repeat;
+            background-size: 10px 16px;
+        }
+
+        .chapter-head {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 0 20px;
+            line-height: 40px;
+        }
+
+        .chapter-list-section {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .chapter-bar {
+            line-height: 36px;
+            padding-left: 20px;
+            color: #969ba3;
+            background-color: #f6f7f9;
+        }
+
+        .chapter .chapter-list {
+            position: absolute;
+            top: 115px;
+            right: 0px;
+            bottom: 0;
+            left: 0px;
+            overflow: auto;
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .chapter .chapter-item {
+            padding: 15px 20px 15px 0;
+            border-top: 1px solid #f0f1f2;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin: 0;
+            font-size: 12px;
+            list-style: none;
+            cursor:pointer;
+        }
+        .chapter p{margin:0}
+    </style>
+</head>
+<body>
+    <section class="book chapter show" id="app">
+        <div class="back-bar">
+                <span class="back">
+                    <a class="top__back" href="javascript:" @click="return()"></a>
+                </span> 
+                <h2>{{bookName}}</h2>
+            </div>
+        <h4 class="chapter-head">
+            <span class="total">共{{chapters.length}}章</span> 
+        </h4>
+        <div class="chapter-list-section">
+            <div class="chapter-bar">正文卷</div>
+        </div>
+        <ul class="chapter-list">
+            <li class="chapter-item" v-for="chapter in chapters"  @click="readBook(chapter.id,book,$index)">
+                <p>{{chapter.title}}</p>
+            </li>
+        </ul>
+    </section>
+
+
+    <script src="https://cdn.bootcss.com/vue/1.0.26-csp/vue.js"></script>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
+    <script src="/static/js/pages/chapter-show.js"></script>
+</body>
+</html>

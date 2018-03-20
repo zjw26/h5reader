@@ -1,0 +1,65 @@
+<style>
+    .back-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        overflow: hidden;
+        color: #fff;
+        background-color: #ed424b;
+        z-index: 1;
+    }
+
+    .back-bar .back {
+        position: absolute;
+        top: -2px;
+        left: 0px;
+        text-align: center;
+    }
+
+    .back-bar .back .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+
+    .back-bar h2 {
+        width: 70%;
+        margin: 0 auto;
+        line-height: 40px;
+        text-align: center;
+        font-size:16px;
+    }
+
+    .top__back {
+        float: left;
+        width: 42px;
+        height: 44px;
+    }
+
+    .top__back:before {
+        content: '';
+        display: block;
+        margin: 15px 0 0 16px;
+        width: 10px;
+        height: 16px;
+        background: url(/static/img/back.png) no-repeat;
+        background-size: 10px 16px;
+    }
+</style>
+
+
+<section class="back-bar">
+    <span class="back">
+        <a class="top__back" href="/"></a>
+    </span> 
+    <h2>书籍详情</h2>
+</section>

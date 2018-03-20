@@ -1,0 +1,81 @@
+<style>
+    .recommend {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .recommend p{
+        font-size:16px;
+        margin:0;
+    }
+
+    ul li{
+        list-style: none;
+    }
+    ul{
+        padding:0;
+    }
+    .recommend h4 {
+        font-weight: 400;
+        font-size: 16px;
+        color: #33373d;
+        line-height: 1;
+        border-left: 2px solid #ed424b;
+        padding-left: 13px;
+        margin: 10px 0;
+    }
+
+    .recommend h4 a {
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        font-size: 13px;
+    }
+
+    .red {
+        color: #ed424b;
+    }
+
+    .recommend h4 a::after {
+        content: '>';
+        display: inline-block;
+        margin-left: 3px;
+    }
+
+    .recommend .recommend-list {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .recommend .recommend-list .recommend-item {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding: 0 15px;
+    }
+
+    .recommend .recommend-list .cover {
+        width: 60px;
+        height: 80px;
+    }
+
+    .recommend-item p{
+        width:100px;
+        font-size: 10px;
+    }
+</style>
+
+<section class="recommend">
+    <h4>同类推荐
+            <a href="javascript:" class="more red">更多</a>
+    </h4>
+    <ul class="recommend-list">
+            <li class="recommend-item" v-for="item in recommend.books" v-if="$index<4">
+                    <img :src="item.cover | cover" alt="item.title" class="cover">
+                    <p>{{item.title}}</p>
+            </li>
+    </ul>
+</section>
+
