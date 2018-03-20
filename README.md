@@ -10,7 +10,9 @@ vue.js + zepto.js + ejs +  node.js + koa2 + ES5/6 + css
 
 ## 项目运行
 
-```   
+```   
+cd 项目目录
+
 npm install 或 cnpm install（淘宝镜像）
 
 node app.js
