@@ -51,13 +51,14 @@ localstorage只能存字符串，存数组需要用JSON.stringify()方法转成�
   rewrite: path => path.replace(/^\/api/, ''),
   logs: true
 }))
+
 2.在服务器端用nginx进行反向代理
 在nginx配置文件中加
  location /api/ {
         proxy_pass http://api.zhuishushenqi.com/;
  }
 
-2. 调用接口时只需要以`/api`开头就可以
+3. 调用接口时只需要以`/api`开头就可以
 ```
         
 
