@@ -38,7 +38,7 @@ app.use(proxy('/chapterapi', {
   target: 'http://chapter2.zhuishushenqi.com/chapter/http://vip.zhuishushenqi.com',    
   changeOrigin: true,
   // agent: new httpsProxyAgent('http://1.2.3.4:88'),
-  rewrite: path => path.replace(/^\/api/, ''),
+  rewrite: path => path.replace(/^\/chapterapi/, ''),
   logs: true
 }))
 
