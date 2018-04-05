@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>目录</title>
     <style>
         .book {
             position: relative;
@@ -138,10 +138,19 @@
             cursor:pointer;
         }
         .chapter p{margin:0}
+
+        .chapter-list>li>img{
+            float:right;
+            height:20px;
+            width:20px;
+        }
     </style>
 </head>
 <body>
     <section class="book chapter show" id="app">
+        <div class="pageLoading" v-if="isShowPageLoading">
+                <% include include/page-loading.html %>
+        </div>
         <div class="back-bar">
                 <span class="back">
                     <a class="top__back" href="javascript:" @click="return()"></a>
@@ -156,7 +165,9 @@
         </div>
         <ul class="chapter-list">
             <li class="chapter-item" v-for="chapter in chapters"  @click="readBook(chapter.id,book,$index)">
+                <img src="/static/img/lock.png" alt="" v-if="chapter.isVip">
                 <p>{{chapter.title}}</p>
+                
             </li>
         </ul>
     </section>

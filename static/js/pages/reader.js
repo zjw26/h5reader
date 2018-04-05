@@ -3,15 +3,15 @@ var id=params.split('&book=')[0];
 var book=params.split('&book=')[1].split('&index=')[0];
 var index=params.split('&book=')[1].split('&index=')[1];
 console.log(book,id,index);
+var data;
 $.get('ajax/chapter_data?id=' + id,function(d){
 	console.log(d);
-	var data={
+	data={
 		data:d,
 		bookId:book,
 		isAdded:false
 	}
 	let shelf=JSON.parse(localStorage.getItem('shelf'))?JSON.parse(localStorage.getItem('shelf')):[];
-	console.log(shelf)
 	for(let i=0;i<shelf.length;i++){
 		if(shelf[i].bookId==book){
 			data.isAdded=true;
@@ -81,7 +81,13 @@ $.get('ajax/chapter_data?id=' + id,function(d){
 },'json');
 setTimeout(function(){
 	var txts = $('#fiction_container').html();
-	txts=txts.replace(/\n+/g,'<br>&nbsp&nbsp');
-	$('#fiction_container').html(txts);
+	console.log(data.data.chapter.isVip)
+	var content=$('#fiction_container');
+	if(data.data.chapter.isVip){
+		content.html('该章节为付费内容，请到追书神器app进行阅读。');
+	}else{
+		txts=txts.replace(/\n+/g,'<br>&nbsp&nbsp');
+		content.html(txts);	
+	}
 },800)
 

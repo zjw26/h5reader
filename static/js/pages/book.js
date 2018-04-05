@@ -1,7 +1,5 @@
 var id = location.href.split('?id=').pop();
-console.log(id);
 $.get('/ajax/book?id=' + id,function(d){
-	console.log(d)
 	new Vue({
 		el:'#app',
 		data:d,
@@ -14,7 +12,14 @@ $.get('/ajax/book?id=' + id,function(d){
 			},
 			serializeWordCount() {
 				return this.data.serializeWordCount < 0 ? 0 : this.data.serializeWordCount;
-			}
+			},
+			isShowPageLoading(){
+                if(d){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
 		},
 		filters: {
 			cover(cover){
@@ -41,7 +46,12 @@ $.get('/ajax/book?id=' + id,function(d){
 					var chapterId=d.chapters[0].id;
 					location.href = "/reader?id="+chapterId+"&book="+bookId+"&index="+0;
 				},'json');
-				
+			},
+			toBook:function(id){
+				location.href="/book?id="+id;
+			},
+			more:function(){
+				location.href="/more?id="+id;
 			}
 		}
 	});

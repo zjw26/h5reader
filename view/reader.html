@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="/static/css/reset.css">
+    <title>阅读器</title>
     <style type="text/css">
         html {
             width: 100%;
@@ -320,6 +321,9 @@
 </head>
 <body>
 <div id="app" class="container">
+    <div class="pageLoading" v-if="isShowPageLoading">
+        <% include include/page-loading.html %>
+    </div>
     <div class="m-artical-action">
         <div class="artical-action-mid" id="action_mid"></div>
     </div>

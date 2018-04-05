@@ -107,7 +107,10 @@ app.use(route.get('/reader',async function(){
 	this.body = await render('reader');
 }));
 
-
+app.use(route.get('/more',async function(){
+	this.set('Cache-Control', 'no-cache');
+	this.body = await render('more');
+}));
 //接口
 app.use(route.get('/ajax/category', function(ctx){
 	ctx.response.set('Cache-Control', 'no-cache');
@@ -119,20 +122,29 @@ app.use(route.get('/ajax/rank', function(ctx){
 	ctx.response.body = service.get_rank_data();
 }));
 
-app.use(route.get('/ajax/index',function(ctx){
+app.use(route.get('/ajax/index',async function(ctx){
   ctx.response.set('Cache-Control','no-cache');
-  ctx.response.body=service.get_index_data();
+  console.log('aa')
+  var data={};
+  var female=await service.female_data();
+  var male=await service.male_data();
+  var index=await service.get_index_data();
+  console.log('222')
+  data.female=JSON.parse(female);
+  data.index=JSON.parse(index);
+  data.male=JSON.parse(male);
+  ctx.response.body=data;
 }))
 
-app.use(route.get('/ajax/male',function(ctx){
-  ctx.response.set('Cache-Control','no-cache');
-  ctx.response.body=service.get_male_data();
-}))
+// app.use(route.get('/ajax/male',function(ctx){
+//   ctx.response.set('Cache-Control','no-cache');
+//   ctx.response.body=service.get_male_data();
+// }))
 
-app.use(route.get('/ajax/female',function(ctx){
-  ctx.response.set('Cache-Control','no-cache');
-  ctx.response.body=service.get_female_data();
-}))
+// app.use(route.get('/ajax/female',function(ctx){
+//   ctx.response.set('Cache-Control','no-cache');
+//   ctx.response.body=service.get_female_data();
+// }))
 
 app.use(route.get('/ajax/search',async function(ctx){
   ctx.response.set('Cache-Control','no-cache');
@@ -145,6 +157,34 @@ app.use(route.get('/ajax/search',async function(ctx){
   ctx.response.body=await service.get_search_data(keyword);
 }))
 
+app.use(route.get('/ajax/male',async function(ctx){
+  ctx.response.set('Cache-Control', 'no-cache');
+  console.log('male')
+  var one=await service.get_male_one();
+  var two= await service.get_male_two();
+  var three=await service.get_male_three();
+  var four=await service.get_male_four();
+  var male={};
+  male.one=JSON.parse(one);
+  male.two=JSON.parse(two);
+  male.three=JSON.parse(three);
+  male.four=JSON.parse(four);
+	ctx.response.body =male;
+}));
+
+app.use(route.get('/ajax/female',async function(ctx){
+  ctx.response.set('Cache-Control', 'no-cache');
+  var one=await service.get_female_one();
+  var two= await service.get_female_two();
+  var three=await service.get_female_three();
+  var four=await service.get_female_four();
+  var female={};
+  female.one=JSON.parse(one);
+  female.two=JSON.parse(two);
+  female.three=JSON.parse(three);
+  female.four=JSON.parse(four);
+	ctx.response.body =female;
+}));
 
 app.use(route.get('/ajax/book',async function(ctx){
 	ctx.response.set('Cache-Control', 'no-cache');
@@ -162,6 +202,7 @@ app.use(route.get('/ajax/book',async function(ctx){
   book_data.recommend=JSON.parse(recommend);
 	ctx.response.body =book_data;
 }));
+
 
 app.use(route.get('/ajax/chapter',async function(ctx){
   ctx.response.set('Cache-Control', 'no-cache');

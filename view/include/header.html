@@ -3,8 +3,8 @@
         padding:0px 90px;
         text-align: center;
         line-height: 44px;
-        background: #efeff0;
-        border:1px solid #ddd;
+        background: #850f0f;
+        border:1px solid #850f0f;
         position:relative;
     }
 
@@ -27,7 +27,7 @@
         top:0px;
         width:44px;
         height:44px;
-        background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01j041d5DOT/boUg2EJlVetOMC.png) no-repeat center;
+        background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01dSYLeWtSR/tY73MgTfVw7UAS.png)  no-repeat center;
         background-size: 16px;
     }
 
@@ -37,7 +37,7 @@
         top:0px;
         width:44px;
         height:44px;
-        background: url(http://image.read.duokan.com/mfsv2/download/s010/p01O5K5DzsAZ/2ZODzjwkRQh7l3.png) no-repeat center;
+        background: url("/static/img/book2.png") no-repeat center;
         background-size: 22px;
     }
 
@@ -55,6 +55,7 @@
 
     .Swipe-tab>a{
         float:left;
+        color:#e7e3de;
     }
 
     .Swipe-tab_2>a{
@@ -81,6 +82,6 @@
             <a href="javascript:" v-on:click="tabSwitch(2)" class="{{tab_2_class}}"></a>
             <i style="width:{{index_header_tab_width}}px;transition-duration:.5s;transform:translate3d({{header_position}}px,0,0);"></i>
         </div>
-        <em class="header-user"></em>
+        <em class="header-user" onclick="location.href='/search'"></em>
         <em class="header-checkin"></em>
     </div>

@@ -26,28 +26,29 @@
             <div>
                 <div>
                     <ul class="list-h5">
-                        <li v-for="item in male" v-if="$index<6" @click="toBook(item.id)">
-                            <div class="book-h5">
-                                <div class="book-h5__cover">
-                                    <img alt="{{item.title}}" :src="item.cover">
-                                    <p class="book-h5__finish">完结</p>
-                                </div>
-                                <div class="book-h5__info">
-                                    <p class="book-h5__title">{{item.title}}</p>
-                                    <p class="book-h5__author">{{item.author}}</p>
-                                    <p class="book-h5__summary">{{item.summary}}</p>
-                                    <div class="book-h5__wrap">
-                                        <div class="book-h5__tag" v-for="tag in item.tags" v-if="$index<6">{{tag}}</div>
+                            <li v-for="item in male" v-if="$index<maxIndexM&&$index>=minIndexM" @click="toBook(item.id || item.book._id)">
+                                    <div class="book-h5">
+                                        <div class="book-h5__cover">
+                                            <img alt="{{item.title ||item.book.title}}" :src="item.cover || item.book.cover">
+                                            <p class="book-h5__finish">完结</p>
+                                        </div>
+                                        <div class="book-h5__info">
+                                            <p class="book-h5__title">{{item.title || item.book.title}}</p>
+                                            <p class="book-h5__author">{{item.authors || item.book.author}}</p>
+                                            <p class="book-h5__summary">{{item.summary || item.book.shortIntro}}</p>
+                                            <div class="book-h5__wrap">
+                                                <div class="book-h5__tag">{{item.book.majorCate}}</div>
+                                                <div class="book-h5__tag">{{item.book.minorCate}}</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </li>
+                                </li>
                     </ul>
                 </div>
             </div>
             
             <div class="channel-h5__footer_next">
-                <a class="btn-h5__next" href="javascript:">换一换</a>
+                <a class="btn-h5__next" @click="changeMale()">换一换</a>
                     <a class="btn-h5__more" href="/male">男生频道&gt;&gt;</a>
             </div>
         </section>

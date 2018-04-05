@@ -6,7 +6,7 @@
                 </p>    
             </div>
             <ul class="list-h5">
-                <li v-for="item in hot" v-if="$index<8" @click="toBook(item.id)">
+                <li v-for="item in hot" v-if="$index<4" @click="toBook(item.id)">
                     <div class="book-h5">
                         <div class="book-h5__cover">
                             <img alt="{{item.title}}" :src="item.cover">
@@ -14,7 +14,7 @@
                         </div>
                         <div class="book-h5__info">
                             <p class="book-h5__title">{{item.title}}</p>
-                            <p class="book-h5__author">{{item.author}}</p>
+                            <p class="book-h5__author">{{item.authors}}</p>
                             <p class="book-h5__summary">{{item.summary}}</p>
                             <div class="book-h5__wrap">
                                 <div class="book-h5__tag" v-for="tag in item.tags" v-if="$index<6">{{tag}}</div>

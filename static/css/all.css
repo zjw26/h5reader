@@ -4014,7 +4014,7 @@ body,
 
 #root .top{
     height: 44px;
-    background: #ed424b;
+    background: #850f0f;
     border-bottom: 1px solid #ddd;
 }
 
@@ -4756,7 +4756,7 @@ body,
 
 .search-input {
     position: relative;
-    margin: 5px 20px 5px 42px;
+    margin: 5px 20px 5px 20px;
     height: 35px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }

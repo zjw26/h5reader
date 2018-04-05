@@ -37,6 +37,14 @@
 	padding-top: 1.2em;
 }
 
+#shelf .u-book .bookmark>img {
+	position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 20px;
+    height: 20px;
+}
+
 </style>
 
 <div class="shelf">
@@ -49,6 +57,9 @@
 	<ul class="book-list" id="shelf">
 		<li v-for="item in shelf" @click="readBook($index)">
 			<div class="u-book">
+				<div class="bookmark">
+					<img src="/static/img/bookmark.png" alt="">
+				</div>
 				<a>
 					<div class="book-cover">
 						<img alt="" v-bind:src="'http://statics.zhuishushenqi.com'+item.cover">

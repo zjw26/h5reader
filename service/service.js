@@ -95,9 +95,138 @@ exports.get_book_data = function(id) {
     });
  };
 
+ exports.get_male_one=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=male&type=hot&major=%E7%8E%84%E5%B9%BB&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
+
+ exports.get_male_two=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=male&type=hot&major=%E8%81%8C%E5%9C%BA&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
+
+ exports.get_male_three=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=male&type=hot&major=%E4%BB%99%E4%BE%A0&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
 
 
 
+ exports.get_male_four=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=male&type=hot&major=%E7%AB%9E%E6%8A%80&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
+
+
+ exports.get_female_one=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=female&type=hot&major=%E5%8F%A4%E4%BB%A3%E8%A8%80%E6%83%85&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
+
+ exports.get_female_two=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=female&type=hot&major=%E7%8E%B0%E4%BB%A3%E8%A8%80%E6%83%85&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
+
+ exports.get_female_three=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=female&type=hot&major=%E9%9D%92%E6%98%A5%E6%A0%A1%E5%9B%AD&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
+
+
+
+ exports.get_female_four=function(){
+    return new Promise(function(resolve
+        , reject) {
+        try {
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/book/by-categories?gender=female&type=hot&major=%E6%82%AC%E7%96%91%E7%81%B5%E5%BC%82&minor=&start=0&limit=20', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    });
+ }
 
 
 
@@ -147,7 +276,39 @@ exports.get_chapter_content_data= function(id) {
             console.log(e);
         }
     });
+
 }
+
+exports.female_data=function(){
+    return new Promise(function(resolve,reject){
+        try{
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/recommendPage/node/books/all/5912872f8973b2fe3361463f', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        }catch (e) {
+            console.log(e);
+        }
+    })
+}
+
+exports.male_data=function(){
+    return new Promise(function(resolve,reject){
+        try{
+            var request=require('request')
+            request('http://127.0.0.1:3000/api/recommendPage/node/books/all/59128334694d1cda365b8985', function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                     resolve(body);
+                }
+            })
+        }catch (e) {
+            console.log(e);
+        }
+    })
+}
+
 
 
 
@@ -170,11 +331,6 @@ exports.get_search_data = function( keyword) {
             // });
             console.log('aaa',query_str)
             var request=require('request')
-            let options = {
-                hostname: '127.0.0.1:3000/api/',
-                path: '/book/fuzzy-search?' + query_str,
-                method: 'GET'
-            };
             request('http://127.0.0.1:3000/api/book/fuzzy-search?'+query_str, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                      // Show the HTML for the baidu homepage.

@@ -4,8 +4,9 @@
 		height: 44px;
 		border-bottom: 1px solid #ddd;
 		font: 15px/45px a;
-		color:rgba(0,0,0,0.7);
-		background-color: #efeff0;
+		color:#e7e3de;
+		background-color: #850f0f;
+		text-align: center;
 	}
 	.top__back {
 		float: left;
@@ -31,9 +32,30 @@
 	}
 </style>
 <div class="top">
-	<a class="top__back" href="/"></a>
+	<a class="top__back" href="javascript:" onclick="history.back();"></a>
 	<span class="top__title">
-        搜索
     </span>
 	<a class="header-home" href="/"></a>
 </div>
+<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
+<script>
+	var title = location.href.split('/').pop();
+	console.log(title)
+	if(title.indexOf('category')!=-1){
+		$('.top__title').html('分类');
+	}else if(title.indexOf('male')!=-1){
+		if(title.indexOf('female')!=-1){
+			$('.top__title').html('女生');
+		}else{
+			$('.top__title').html('男生');
+		}
+
+	}else if(title.indexOf('rank')!=-1){
+		$('.top__title').html('排行');
+	}else if(title.indexOf('search')!=-1){
+		$('.top__title').html('搜索');
+	}else{
+		$('.top__title').html('更多');
+	}
+
+</script>

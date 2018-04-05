@@ -7,18 +7,20 @@
     <div>
         <div>
             <ul class="list-h5">
-                <li v-for="item in female" v-if="$index<6" @click="toBook(item.id)">
+                <li v-for="item in female" v-if="$index<maxIndexF&&$index>=minIndexF" @click="toBook(item.id || item.book._id)">
                     <div class="book-h5">
                         <div class="book-h5__cover">
-                            <img alt="{{item.title}}" :src="item.cover">
+                            <img alt="{{item.title ||item.book.title}}" :src="item.cover || item.book.cover">
                             <p class="book-h5__finish">完结</p>
                         </div>
                         <div class="book-h5__info">
-                            <p class="book-h5__title">{{item.title}}</p>
-                            <p class="book-h5__author">{{item.author}}</p>
-                            <p class="book-h5__summary">{{item.summary}}</p>
+                            <p class="book-h5__title">{{item.title || item.book.title}}</p>
+                            <p class="book-h5__author">{{item.authors || item.book.author}}</p>
+                            <p class="book-h5__summary">{{item.summary || item.book.shortIntro}}</p>
                             <div class="book-h5__wrap">
-                                <div class="book-h5__tag" v-for="tag in item.tags" v-if="$index<6">{{tag}}</div>
+                                <div class="book-h5__tag">{{item.book.majorCate}}</div>
+                                <div class="book-h5__tag">{{item.book.minorCate}}</div>
+                                <!-- <div class="book-h5__tag" v-for="tag in item.tags" v-if="$index<6">{{tag || item.book.majorCate}}</div> -->
                             </div>
                         </div>
                     </div>
@@ -28,7 +30,7 @@
     </div>
     
     <div class="channel-h5__footer_next">
-        <a class="btn-h5__next" href="javascript:">换一换</a>
+        <a class="btn-h5__next" @click="changeFemale()">换一换</a>
             <a class="btn-h5__more" href="/female">女生频道&gt;&gt;</a>
     </div>
 </section>

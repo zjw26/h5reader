@@ -4,18 +4,22 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="/static/css/all.css"/>
-	<title></title>
+	<title>排行</title>
 </head>
 <body>
-	<div id="root">
+	<div id="app">
 		<div class="Swipe Swipe_full Destructor">
 			<div style="width: 100%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+				<div class="pageLoading" v-if="isShowPageLoading">
+							<% include include/page-loading.html %>
+				</div>
 				<div style="width: 100%;">
 					<% include include/common-header.html %>
 					<div class="Swipe Swipe_full container-scroll Destructor">
-						<div style="width: 1468px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+						<div style="width: 100%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
 							<div style="width: 100%;" >
-								<div id="app">
+								<div>
+									
 									<ul class="original-rank-list">
 										<li class="original-rank-list__item" v-if="$index>18" v-for="item in items">
 											<img v-bind:src="item.cover" class="original-rank-list__img">

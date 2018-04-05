@@ -2,15 +2,10 @@
 基于h5的书城WebApp.使用 node.js 模拟后台数据，无实际后台，完全的前后端分离开发。调用第三方api（http://api.zhuishushenqi.com） 追书神器api抓取数据到页面上进行渲染。
 
 ## 技术栈
-vue.js + zepto.js + ejs +  node.js + koa2 + ES5/6 + css + swiper
+vue.js + zepto.js + ejs +  node.js + koa2 + ES5/6 + css
 
 ## 源码地址
 [https://github.com/zjw26/h5reader](https://github.com/zjw26/h5reader) 
-
-## 书城地址
-[http://47.106.89.4/](http://47.106.89.4/)
-
-电脑端推荐用新版谷歌或火狐浏览器，手机端建议用17年后的浏览器版本。
 
 
 ## 项目运行
@@ -21,13 +16,11 @@ cd 项目目录
 npm install 或 cnpm install（淘宝镜像）
 
 node app.js
-
-项目将运行在 127.0.0.1:3000
 ```
 
 ## 说明
 
-- 还存在一些需要进行优化的细节问题，今后会做一下优化。
+- 还存在一些需要进行优化的细节问题，优化后会部署到服务器上线。
 - 如果觉得做的还行，对您有所帮助，欢迎“star”一下。
 
 ## 开发中遇到的问题
@@ -52,13 +45,7 @@ localstorage只能存字符串，存数组需要用JSON.stringify()方法转成�
   logs: true
 }))
 
-2.在服务器端用nginx进行反向代理
-在nginx配置文件中加
- location /api/ {
-        proxy_pass http://api.zhuishushenqi.com/;
- }
-
-3. 调用接口时只需要以`/api`开头就可以
+2. 调用接口时只需要以`/api`开头就可以
 ```
         
 

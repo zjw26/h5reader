@@ -9,6 +9,7 @@ var shelf=JSON.parse(localStorage.getItem('shelf'))?JSON.parse(localStorage.getI
         })
     }
 
+
 $.get('/ajax/index',function(d){
     var windowWidth = $(window).width();
     if(windowWidth<320){
@@ -25,23 +26,33 @@ $.get('/ajax/index',function(d){
             screen_width:windowWidth,
    	  	    double_screen_width:windowWidth*2,
    	  	    index_header_tab_width:index_header_tab_width,
-            top:d.items[0].data.data,
-            hot:d.items[1].data.data,
-            recommend:d.items[2].data.data,
-            female:d.items[3].data.data,
-            male:d.items[4].data.data,
-            free:d.items[5].data.data,
-            topic:d.items[6].data.data,
+            top:d.index.items[0].data.data,
+            hot:d.index.items[1].data.data,
+            recommend:d.index.items[2].data.data,
+            female:d.female.data,
+            male:d.male.data,
+            free:d.index.items[5].data.data,
+            topic:d.index.items[6].data.data,
             position:0,
             header_position:0,
             tab_1_class:'Swipe-tab__on',
-            tab_2_class:''
-            
+            tab_2_class:'',
+            minIndexF:0,
+            maxIndexF:4,
+            minIndexM:0,
+            maxIndexM:4
         },
         computed: {
 			cover(cover) {
 				return "http://statics.zhuishushenqi.com" + cover;
-			}
+            },
+            isShowPageLoading(){
+                if(this.hot){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
 		},
         methods:{
             tabSwitch:function(pos){
@@ -66,7 +77,15 @@ $.get('/ajax/index',function(d){
                 let bookId=shelf[index].bookId;
                 let chapterIndex=shelf[index].chapterIndex;
                 location.href = "/reader?id="+chapterId+"&book="+bookId+"&index="+chapterIndex;
-			}
+            },
+            changeMale:function(){
+                this.minIndexM=Math.round(Math.random()*11 + 0);
+                this.maxIndexM=this.minIndexM+4;
+            },
+            changeFemale:function(){
+                this.minIndexF=Math.round(Math.random()*11 + 0);
+                this.maxIndexF=this.minIndexF+4;
+            }
         }
     })
 },'json');

@@ -40,19 +40,23 @@
         margin: 0px auto;
     }
 
+    .swiper-container-flip {
+        overflow: hidden;
+    }
+
 </style>
     <section class="top-home">
-        <a href="/search">
+        <!-- <a href="/search">
             <div class="top-home__search">输入书名/作者/关键字</div>
-        </a>
-        <div id="myCarousel" class="carousel slide">
-            <!-- 轮播（Carousel）指标 -->
+        </a> -->
+        <!-- <div id="myCarousel" class="carousel slide">
+
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>   
-            <!-- 轮播（Carousel）项目 -->
+ 
             <div class="carousel-inner">
                 <div class="item active">
                     <a href="http://dushu.xiaomi.com/#page=channel&id=410">
@@ -70,14 +74,27 @@
                     </a>
                 </div>
             </div>
-            <!-- 轮播（Carousel）导航 -->
+ 
             <a class="carousel-control left" href="#myCarousel" 
                 data-slide="prev">&lsaquo;
             </a>
             <a class="carousel-control right" href="#myCarousel" 
                 data-slide="next">&rsaquo;
             </a>
-        </div>
+        </div> -->
+        <div class="swiper-container" style="border-top:10px solid #f5f5f5">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img class="cover" src="http://image.read.duokan.com/mfsv2/download/fdsc3/p01IXamA7L8A/NRfV4ygyIRzNvI.png!q90" alt="First slide"></div>
+                    <div class="swiper-slide"><img class="cover" src="http://image.read.duokan.com/mfsv2/download/fdsc3/p01btQhhzKEP/uXSEtKJUVA4reR.jpg!q90" alt="First slide"></div>
+                    <div class="swiper-slide"><img class="cover" src="http://image.read.duokan.com/mfsv2/download/fdsc3/p01HcvpQ4cI9/WgZADYUd9j6wwI.jpg!q90" alt="First slide"></div>
+                </div>
+
+                <div class="swiper-scrollbar"></div>
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+                
+            </div>
         <ul class="top-home__btn">
                 <li>
                     <a href="/male">
@@ -105,11 +122,32 @@
                 </li>
             </ul>
     </section>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>$.noConflict();</script>
+    
+    <script src="https://cdn.bootcss.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/Swiper/4.2.2/js/swiper.min.js"></script>
     <script>
-        jQuery.get('http://127.0.0.1:3000/api/book/fuzzy-search?query='+123,function(data){
-                console.log(data);
-            });
+        var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    autoplay:true, 
+    
+   
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+    // 如果需要滚动条
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+    effect : 'flip',
+    setWrapperSize :true,
+    observer: true,//修改swiper自己或子元素时，自动初始化swiper
+    observeParents: true//修改swiper的父元素时，自动初始化swiper
+  })   
     </script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>

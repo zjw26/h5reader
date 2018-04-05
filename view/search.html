@@ -20,6 +20,12 @@
         right: 0;
     }
 
+	#root .top {
+		height: 44px;
+		background: #850f0f;
+		border-bottom: 1px solid #ddd;
+	}
+
     </style>
 </head>
 <body>
@@ -33,23 +39,15 @@
 							<div style="width: {{screen_width}}px;" >
 								<div class="search">
 									<div class="top">
-										<a href="javascript:history.back()" class="top__back"></a>
 										<div id="search-input" class="search-input"> <b class="search-input__mi"></b>
 											<input type="text" value="" id="search_box" placeholder="输入书名/作者/关键字">
 											<div class="search-input__btn" v-on:click="doSearch" >搜索</div>
 										</div>
 									</div>
-									<div class="top__bd" v-show="condition">
+									<div class="top__bd" v-show="condition" id="tagList">
 										<div>
 											<ul class="m-tag -color search-tag">
-												<li class="u-tag" id="Tag__128">我的绝美女神老婆</li>
-												<li class="u-tag" id="Tag__129">复仇千金</li>
-												<li class="u-tag" id="Tag__130">盗墓</li>
-												<li class="u-tag" id="Tag__131">豪门小老婆</li>
-												<li class="u-tag" id="Tag__132">庶女</li>
-												<li class="u-tag" id="Tag__133">神医</li>
-												<li class="u-tag" id="Tag__134">魔兽</li>
-												<li class="u-tag" id="Tag__135">我的老婆是双胞胎</li>
+												<li class="u-tag" v-for="var item in tags" >{{tags[$index]}}</li>
 											</ul>
 										</div>
 									</div>
@@ -95,4 +93,4 @@
         <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
         <script src="/static/js/pages/search.js"></script>
 </body>
-	</html>
+</html>

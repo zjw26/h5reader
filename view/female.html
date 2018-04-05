@@ -4,12 +4,15 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="/static/css/all.css"/>
-	<title></title>
+	<title>女生频道</title>
 </head>
 <body>
 	<div id="root">
 		<div class="Swipe Swipe_full Destructor" id="app">
 			<div style="width: 100%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+				<div class="pageLoading" v-if="isShowPageLoading">
+						<% include include/page-loading.html %>
+				</div>
 				<div style="width: 100%;">
 					<% include include/common-header.html %>
 					<div class="Swipe Swipe_full container-scroll Destructor">
@@ -17,31 +20,115 @@
 							<div style="width: 100%;" >
 								<!--  <div class="new-page channel-page" id="app"> -->
 								<div class="new-page channel-page">
-									<section class="channel-group main-card" v-for="section in items">
+									<section class="channel-group main-card">
 										<div class="channel-group__header">
-											<h2 class="channel-group__title channel-group__title_left">{{section.ad_name}}</h2>
+											<h2 class="channel-group__title channel-group__title_left">古代言情</h2>
 										</div>
 										<ul class="book-list">
-											<li v-for="book in section.data.data">
-												<div class="u-book">
-													<div class="cnt">
-														<div class="book-cover">
-															<img alt="{{ book.title }}" v-bind:src="book.cover">
-															<div class="u-tagRT"></div>
-														</div>
-														<div class="info">
-															<h3 class="title single-line">{{ book.title }}</h3>
-															<p class="summary">{{ book.summary }}</p>
-															<div class="wrap">
-																<div class="book-tag" v-for="tag in book.tags">{{ tag }}</div>
-												
-																<p class="author single-line">
-																	<span class="author">{{ book.authors }}</span>
-																</p>
+											<li v-for="book in data.one.books" v-if="$index>-1&&$index<5" @click="toBook(book._id)">
+													<div class="u-book">
+														<div class="cnt">
+															<div class="book-cover">
+																<img alt="{{ book.title }}" v-bind:src="'http://statics.zhuishushenqi.com'+book.cover">
+																<div class="u-tagRT"></div>
+															</div>
+															<div class="info">
+																<h3 class="title single-line">{{ book.title }}</h3>
+																<p class="summary">{{ book.shortIntro }}</p>
+																<div class="wrap">
+																	<div class="book-tag" > {{book.minorCate}} </div>
+																	<div class="book-tag" >{{ book.majorCate }}</div>
+																	<p class="author single-line">
+																		<span class="author">{{ book.author }}</span>
+																	</p>
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
+											</li>
+										</ul>
+									</section>
+									<section class="channel-group main-card">
+										<div class="channel-group__header">
+											<h2 class="channel-group__title channel-group__title_left">现代言情</h2>
+										</div>
+										<ul class="book-list">
+											<li v-for="book in data.two.books" v-if="$index>-1&&$index<5" @click="toBook(book._id)">
+													<div class="u-book">
+														<div class="cnt">
+															<div class="book-cover">
+																<img alt="{{ book.title }}" v-bind:src="'http://statics.zhuishushenqi.com'+book.cover">
+																<div class="u-tagRT"></div>
+															</div>
+															<div class="info">
+																<h3 class="title single-line">{{ book.title }}</h3>
+																<p class="summary">{{ book.shortIntro }}</p>
+																<div class="wrap">
+																	<div class="book-tag" > {{book.minorCate}} </div>
+																	<div class="book-tag" >{{ book.majorCate }}</div>
+																	<p class="author single-line">
+																		<span class="author">{{ book.author }}</span>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+											</li>
+										</ul>
+									</section>
+									<section class="channel-group main-card">
+										<div class="channel-group__header">
+											<h2 class="channel-group__title channel-group__title_left">青春校园</h2>
+										</div>
+										<ul class="book-list">
+											<li v-for="book in data.three.books" v-if="$index>-1&&$index<5" @click="toBook(book._id)">
+													<div class="u-book">
+														<div class="cnt">
+															<div class="book-cover">
+																<img alt="{{ book.title }}" v-bind:src="'http://statics.zhuishushenqi.com'+book.cover">
+																<div class="u-tagRT"></div>
+															</div>
+															<div class="info">
+																<h3 class="title single-line">{{ book.title }}</h3>
+																<p class="summary">{{ book.shortIntro }}</p>
+																<div class="wrap">
+																	<div class="book-tag" > {{book.minorCate}} </div>
+																	<div class="book-tag" >{{ book.majorCate }}</div>
+																	<p class="author single-line">
+																		<span class="author">{{ book.author }}</span>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+											</li>
+										</ul>
+									</section>
+									<section class="channel-group main-card">
+										<div class="channel-group__header">
+											<h2 class="channel-group__title channel-group__title_left">悬疑灵异</h2>
+										</div>
+										<ul class="book-list">
+											<li v-for="book in data.four.books" v-if="$index>-1&&$index<5" @click="toBook(book._id)">
+													<div class="u-book">
+														<div class="cnt">
+															<div class="book-cover">
+																<img alt="{{ book.title }}" v-bind:src="'http://statics.zhuishushenqi.com'+book.cover">
+																<div class="u-tagRT"></div>
+															</div>
+															<div class="info">
+																<h3 class="title single-line">{{ book.title }}</h3>
+																<p class="summary">{{ book.shortIntro }}</p>
+																<div class="wrap">
+																	<div class="book-tag" > {{book.minorCate}} </div>
+																	<div class="book-tag" >{{ book.majorCate }}</div>
+																	<p class="author single-line">
+																		<span class="author">{{ book.author }}</span>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
 											</li>
 										</ul>
 									</section>
@@ -56,7 +143,7 @@
 	</div>
 	<script src="https://cdn.bootcss.com/vue/1.0.26-csp/vue.js"></script>
     <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
-	<script src="/static/js/pages/channel.js"></script>
+	<script src="/static/js/pages/female.js"></script>
 	
 </body>
 </html>

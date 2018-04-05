@@ -69,10 +69,10 @@
 
 <section class="recommend">
     <h4>同类推荐
-            <a href="javascript:" class="more red">更多</a>
+            <a href="javascript:" class="more red" @click="more()">更多</a>
     </h4>
     <ul class="recommend-list">
-            <li class="recommend-item" v-for="item in recommend.books" v-if="$index<4">
+            <li class="recommend-item" v-for="item in recommend.books" v-if="$index<4" @click="toBook(item._id);">
                     <img :src="item.cover | cover" alt="item.title" class="cover">
                     <p>{{item.title}}</p>
             </li>
