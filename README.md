@@ -58,7 +58,7 @@ localstorage只能存字符串，存数组需要用JSON.stringify()方法转成�
 ![书籍详情](https://github.com/zjw26/h5reader/blob/master/static/img/bookInfo.png)
 ![阅读器](https://github.com/zjw26/h5reader/blob/master/static/img/reader3.png)
 ![更多](https://github.com/zjw26/h5reader/blob/master/static/img/more.png)
-![男生](https://github.com/zjw26/h5reader/blob/master/static/img/male.png)
+![男生](https://github.com/zjw26/h5reader/blob/master/static/img/malePage.png)
 ![目录](https://github.com/zjw26/h5reader/blob/master/static/img/chapter.png)
 
 
