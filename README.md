@@ -2,7 +2,7 @@
 基于h5的书城WebApp.使用 node.js 模拟后台数据，无实际后台，完全的前后端分离开发。调用第三方api（http://api.zhuishushenqi.com） 追书神器api抓取数据到页面上进行渲染。
 
 ## 技术栈
-vue.js + zepto.js + ejs +  node.js + koa2 + ES5/6 + css
+vue.js + zepto.js + ejs +  node.js + koa2 + ES5/6 + css + swiper
 
 ## 源码地址
 [https://github.com/zjw26/h5reader](https://github.com/zjw26/h5reader) 
