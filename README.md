@@ -7,7 +7,7 @@ vue.js + zepto.js + ejs +  node.js + koa2 + ES5/6 + css
 ## 源码地址
 [https://github.com/zjw26/h5reader](https://github.com/zjw26/h5reader) 
 ## 项目地址
-[http://120.79.254.18](http://120.79.254.18) 
+[http://www.zhengjw99.cn](http://www.zhengjw99.cn) 
 
 
 ## 项目运行
